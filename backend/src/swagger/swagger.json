@@ -1,0 +1,127 @@
+{
+	"openapi": "3.0.0",
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"RegisterResponse": {},
+			"LinkAccountResponse": {}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "backend",
+		"contact": {}
+	},
+	"paths": {
+		"/users/register": {
+			"post": {
+				"operationId": "Register",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/RegisterResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Users"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"password": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"password",
+									"email"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/users/link-account": {
+			"post": {
+				"operationId": "LinkAccount",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/LinkAccountResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Users"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"postalCode": {
+										"type": "string"
+									},
+									"code": {
+										"type": "number",
+										"format": "double"
+									},
+									"accountNumber": {
+										"type": "string"
+									},
+									"bankName": {
+										"type": "string"
+									},
+									"userId": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"postalCode",
+									"code",
+									"accountNumber",
+									"bankName",
+									"userId"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}

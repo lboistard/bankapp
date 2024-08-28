@@ -1,0 +1,29 @@
+{
+  "env": {
+    "browser": false,
+    "node": true,
+    "es2021": true,
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:node/recommended",
+  ],
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module",
+  },
+  "rules": {
+    "no-console": "off",
+    "quotes": ["error", "double"],
+    "vars-on-top": "off",
+    "no-else-return": "off",
+    "no-underscore-dangle": "off",
+    "no-mixed-operators": "off",
+    "comma-dangle": "warn",
+    "prefer-destructuring": "off",
+    "max-len": ["error", 120],
+    "@typescript-eslint/ban-ts-comment": "off",
+  },
+}
