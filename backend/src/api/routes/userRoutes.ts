@@ -9,27 +9,6 @@ const userRouter = new Router({
 const userController = new UserController();
 
 /**
- * Register a new user
- */
-userRouter.post("/register", async (ctx: Context) => {
-  interface RequestBody {
-    email: string;
-    password: string;
-  }
-
-  const { email, password } = ctx.request.body as RequestBody;
-
-  try {
-    const user = await userController.register({ email, password });
-    ctx.body = user;
-    ctx.status = 201; // Created
-  } catch (error: unknown) {
-    ctx.status = 400; // Bad Request
-    log("error", `Error in /users/register ${error}`);
-  }
-});
-
-/**
  * Add an account to the user
  */
 userRouter.post("/link-account", async (ctx: Context) => {
