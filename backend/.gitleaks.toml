@@ -1,0 +1,6 @@
+title = "GitLeaks Config"
+
+[[rules]]
+description = "Detect 11-digit numeric strings"
+regex = '''\b\d{11}\b'''
+tags = ["numeric", "ID", "custom"]
