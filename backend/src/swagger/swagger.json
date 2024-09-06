@@ -7,8 +7,23 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
+			"LinkAccountResponse": {},
 			"RegisterResponse": {},
-			"LinkAccountResponse": {}
+			"RegisterUserRequest": {
+				"properties": {
+					"password": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"password",
+					"email"
+				],
+				"type": "object"
+			}
 		},
 		"securitySchemes": {}
 	},
@@ -17,50 +32,6 @@
 		"contact": {}
 	},
 	"paths": {
-		"/users/register": {
-			"post": {
-				"operationId": "Register",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/RegisterResponse"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"Users"
-				],
-				"security": [],
-				"parameters": [],
-				"requestBody": {
-					"required": true,
-					"content": {
-						"application/json": {
-							"schema": {
-								"properties": {
-									"password": {
-										"type": "string"
-									},
-									"email": {
-										"type": "string"
-									}
-								},
-								"required": [
-									"password",
-									"email"
-								],
-								"type": "object"
-							}
-						}
-					}
-				}
-			}
-		},
 		"/users/link-account": {
 			"post": {
 				"operationId": "LinkAccount",
@@ -112,6 +83,38 @@
 									"userId"
 								],
 								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/auth/register": {
+			"post": {
+				"operationId": "Register",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/RegisterResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Authentication"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/RegisterUserRequest"
 							}
 						}
 					}
